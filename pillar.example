@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+tool:
+  users:
+    user:
+      xdg: true                         # force xdg dirs
+      dotconfig: true                   # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/hammerspoon or salt://dotconfig/hammerspoon
+
+  # or specific to hammerspoon
+  hammerspoon:
+    users:
+      user:
+        xdg: true
+        dotconfig: true
