@@ -4,6 +4,9 @@
 
 {%- set default_confdir = '/.hammerspoon' -%}
 
+{%- set console_user = salt['cmd.run_stdout']('id -n -u $(stat -f "%u" /dev/console)', python_shell=True) -%}
+{%- set brew_prefix = '/opt/homebrew' if 'Apple' in grains['cpu_model'] else '/usr/local/' -%}
+
 {#- rejectattr filter does not fit with mapping. need to filter out users before merging default values -#}
 {%- for tool_user, tool_user_conf in salt['pillar.get']('tool:users', {}).items() -%}
 {#- by default, install tool if it was targeted. explicitly deny for a specific user to override -#}
@@ -47,4 +50,4 @@ state: {{ salt['cmd.run']('[ -n "$XDG_STATE_HOME" ] && echo "${XDG_STATE_HOME}" 
   -#}
 {%- endfor -%}
 
-{%- do hammerspoon.update({'users': users.values() | list}) -%}
+{%- do hammerspoon.update({'users': users.values() | list, '_brew_prefix': brew_prefix, '_console_user': console_user}) -%}
