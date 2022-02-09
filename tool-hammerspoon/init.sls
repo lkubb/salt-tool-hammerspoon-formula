@@ -9,3 +9,6 @@ include:
 {%- if hammerspoon.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') | list %}
   - .configsync
 {%- endif %}
+{%- if hammerspoon.users | selectattr('hammerspoon.spoons', 'defined') | selectattr('hammerspoon.spoons') | list %}
+  - .spoons
+{%- endif %}

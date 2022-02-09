@@ -13,10 +13,21 @@ The following shows an example of `tool-hammerspoon` pillar configuration. Names
 user:
   xdg: true                         # force xdg dirs
   dotconfig: true                   # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/hammerspoon or salt://dotconfig/hammerspoon
+  hammerspoon:
+    # make sure some repos are cloned to HS config dir
+    spoons:
+      # either git URL
+      - https://github.com/AdamWagner/stackline
+      # or git URL: branch mapping
+      - https://git.my.example/my/stackline: my
 ```
 
 #### Formula-specific
-There are none currently.
+```yaml
+tool:
+  hammerspoon:
+    update_auto: false              # automatically update cloned spoons
+```
 
 #### Note on general `tool` architecture
 Since installing user environments is not the primary use case for saltstack, the architecture is currently a bit awkward. All `tool` formulas assume running as root. There are three scopes of configuration:
