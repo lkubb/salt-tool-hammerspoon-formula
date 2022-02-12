@@ -11,8 +11,12 @@ Applying `tool-hammerspoon` will make sure `hammerspoon` is configured as specif
 The following shows an example of `tool-hammerspoon` pillar configuration. Namespace it to `tool:users` and/or `tool:hammerspoon:users`.
 ```yaml
 user:
-  xdg: true                         # force xdg dirs
-  dotconfig: true                   # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/hammerspoon or salt://dotconfig/hammerspoon
+  xdg: true               # force xdg dirs
+  # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/hammerspoon or salt://dotconfig/hammerspoon
+  dotconfig:              # can be bool or mapping
+    file_mode: '0600'     # default: keep destination or salt umask (new)
+    dir_mode: '0700'      # default: 0700
+    clean: false          # delete files in target. default: false
   hammerspoon:
     # make sure some repos are cloned to HS config dir
     spoons:
