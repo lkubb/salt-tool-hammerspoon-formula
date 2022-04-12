@@ -9,7 +9,7 @@ include:
   - {{ tplroot }}.package
 
 
-{%- for user in hammerspoon.users | rejectattr('xdg', 'sameas', False) %}
+{%- for user in hammerspoon.users | rejectattr('xdg', 'sameas', false) %}
 
 {%-   set user_default_conf = user.home | path_join(hammerspoon.lookup.paths.confdir) %}
 {%-   set user_xdg_confdir = user.xdg.config | path_join(hammerspoon.lookup.paths.xdg_dirname) %}

@@ -11,6 +11,7 @@ include:
   - {{ sls_config_clean }}
   - {{ sls_cli_clean }}
 
+
 Hammerspoon is removed:
   pkg.removed:
     - name: {{ hammerspoon.lookup.pkg.name }}
