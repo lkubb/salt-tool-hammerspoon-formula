@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
-{%- set sls_config_clean = tplroot ~ '.config.clean' %}
-{%- set sls_cli_clean = slsdotpath ~ '.cli.clean' %}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- set sls_config_clean = tplroot ~ ".config.clean" %}
+{%- set sls_cli_clean = slsdotpath ~ ".cli.clean" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as hammerspoon with context %}
 
 include:

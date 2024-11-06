@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as hammerspoon with context %}
 
 include:
   - {{ tplroot }}.package
 
 
-{%- for user in hammerspoon.users | rejectattr('xdg', 'sameas', false) %}
+{%- for user in hammerspoon.users | rejectattr("xdg", "sameas", false) %}
 
 {%-   set user_default_conf = user.home | path_join(hammerspoon.lookup.paths.confdir) %}
 {%-   set user_xdg_confdir = user.xdg.config | path_join(hammerspoon.lookup.paths.xdg_dirname) %}
