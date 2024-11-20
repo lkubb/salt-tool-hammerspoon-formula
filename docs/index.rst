@@ -1,5 +1,5 @@
-Welcome to salt-tool-hammerspoon-formula's documentation!
-=========================================================
+Welcome to tool-hammerspoon-formula's documentation!
+====================================================
 
 .. toctree::
    :maxdepth: 2
